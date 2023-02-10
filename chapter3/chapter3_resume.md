@@ -60,3 +60,15 @@ mysql> SELECT first_name, last_name FROM cust_vw WHERE active = 0;
 
 Usado para simplificar, esconder colunas dos usuários
 
+**Table links**
+
+Unindo múltiplas tabelas
+Exemplo simples(**INNER JOIN**)
+
+```sql
+SELECT customer.first_name, customer.last_name, time(rental.rental_date) rental_time
+FROM customer
+	INNER JOIN rental
+	ON customer.customer_id = rental.customer_id
+WHERE date(rental.rental_date) = '2005-06-14';
+```
